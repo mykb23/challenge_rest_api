@@ -15,9 +15,9 @@ $db = $database->getConnection();
 
 $user = new User($db);
 
-$data->uid = isset($_GET['uid']) ? $_GET['uid'] : die();
+$user->uid = isset($_GET['uid']) ? $_GET['uid'] : die();
 
-$user->getUserDetails($data->uid);
+$user->getUserDetails($user->uid);
 
 if ($user->email != null) {
     // create array

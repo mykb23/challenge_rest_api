@@ -80,27 +80,4 @@ class User
         $this->id = $row['id'];
         $this->email = $row['email'];
     }
-
-    // Get User UID
-    public function getUserUID()
-    {
-        // query to get user details
-        $query = 'SELECT `id`, `uid`, `firstname`, `lastname`, `email`, `phoneNo` FROM ' . $this->table . ' WHERE email = ?';
-
-        //prepare query statement
-        $stmt = $this->conn->prepare($query);
-
-        $stmt->bindParam(1, $this->email);
-        // $stmt->bindParam(':email', $email);
-
-        // execute query
-        $stmt->execute();
-
-        // retrieved row
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        $this->user = $row;
-        $this->id = $row['id'];
-        $this->uid = $row['uid'];
-    }
 }

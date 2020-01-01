@@ -3,9 +3,9 @@ class Database
 {
     //DB 
     private $host = 'localhost';
-    private $db_name = 'challenge_crud';
-    private $username = 'root';
-    private $password = '';
+    private $db_name =  'id12101189_challenge_crud';
+    private $username = 'id12101189_root';
+    private $password = 'maxwell23';
     private $conn;
 
     public function getConnection()

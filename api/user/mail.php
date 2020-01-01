@@ -15,22 +15,24 @@ $db = $database->getConnection();
 
 $user = new User($db);
 
-$data->uid = isset($_GET['uid']) ? $_GET['uid'] : die();
+$user->email = isset($_GET['email']) ? $_GET['email'] : die();
 
-$user->getUserDetails($data->uid);
+$user->getUserUID($user->email);
 
-if ($user->email != null) {
-    // create array
-    $user_arr = array(
-        'id' => $user->id,
-        'details' => $user
-    );
+// if ($user->email != null) {
+// echo $user->uid;
+// exit;
+// create array
 
-    http_response_code(200);
+$user_arr = array(
+    'userDetails' => $user
+);
 
-    echo json_encode($user_arr);
-} else {
-    http_response_code(404);
+http_response_code(200);
 
-    echo json_encode(array('message' => 'user dose not exist.'));
-}
+echo json_encode($user_arr);
+// } else {
+//     http_response_code(404);
+
+//     echo json_encode(array('message' => 'user dose not exist.'));
+// }
